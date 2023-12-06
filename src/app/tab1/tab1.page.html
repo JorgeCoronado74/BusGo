@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Ciudades
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">Cerrar sesión</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <!-- Selector para ciudades de salida -->
+    <ion-item>
+      <ion-label>Salida</ion-label>
+      <select (change)="selectCiudad('salida', $event)">
+        <option *ngFor="let ciudad of ciudades[0]" [value]="ciudad.id">
+          {{ ciudad.nombre }}
+        </option>
+      </select>
+    </ion-item>
+
+    <!-- Selector para ciudades de destino -->
+    <ion-item>
+      <ion-label>Destino</ion-label>
+      <select (change)="selectCiudad('destino', $event)">
+        <option *ngFor="let ciudad of ciudades[1]" [value]="ciudad.id">
+          {{ ciudad.nombre }}
+        </option>
+      </select>
+    </ion-item>
+  </ion-list>
+</ion-content>

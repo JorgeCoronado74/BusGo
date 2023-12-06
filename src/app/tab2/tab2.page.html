@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tab 2
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      CRUD para jorga
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Nombre</ion-label>
+    <ion-input [(ngModel)]="newItem.nombre"></ion-input>
+  </ion-item>
+  <ion-button (click)="addItem()">Agregar Nuevo</ion-button>
+
+  <ion-list *ngFor="let item of items">
+    <ion-item>
+      {{ item.nombre }}
+      <ion-buttons slot="end">
+        <ion-item *ngIf="item.id">
+          <ion-input [(ngModel)]="updatedItem[item.id]" placeholder="Nuevo Nombre"></ion-input>
+        </ion-item>
+        <ion-button *ngIf="item.id" (click)="updateItem(item.id, updatedItem[item.id] || item.nombre)">Actualizar</ion-button>
+        <ion-button *ngIf="item.id" (click)="deleteItem(item.id)">Eliminar</ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+  
+  
+</ion-content>
+

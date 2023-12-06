@@ -1,0 +1,7 @@
+{
+  "name": "busgo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
